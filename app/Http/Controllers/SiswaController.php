@@ -20,6 +20,8 @@ class SiswaController extends Controller
             'rombel' => $request->rombel,
             'nis' => $request->nis,
         ]);
+
+        return redirect()->route('siswa.index')->with('success' , 'berhasil menambahkan data');
     }
 
     public function index () {

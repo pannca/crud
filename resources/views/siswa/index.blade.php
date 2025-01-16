@@ -11,6 +11,9 @@
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 <body>
+    @if (Session::get('success'))
+        <div class="alert alert-success">{{ Session::get('success') }}</div>
+    @endif
     <div class="p-5">
     <a href=" {{ route('siswa.create') }}"><button type="button" class="btn btn-success">Tambah Data</button></a>
     <table class="table">
