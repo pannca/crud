@@ -28,6 +28,10 @@ class SiswaController extends Controller
         return view ('siswa.index', compact('siswa'));
     }
 
-   
+    public function hapus($id) {
+        Siswa::where('id' , $id)->delete();
+
+        return redirect()->back();
+    }
 
 }
