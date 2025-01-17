@@ -34,6 +34,7 @@
                     <td>{{ $item->rombel }}</td>
                     <td>{{ $item->nis }}</td>
                     <td class="d-flex">
+                        <a href="{{ route('siswa.edit' , $item['id']) }}" class="btn btn-primary me-2">Edit</a>
                         <form action="{{ route('siswa.hapus' , $item['id']) }}" method="POST">
                             @csrf
                             @method('DELETE')

@@ -17,26 +17,27 @@
     @if (Session::get('success'))
         <div class="alert alert-success">{{ Session::get('success') }}</div>
         @endif
-            <form action="{{ route('siswa.store') }}" method="POST" class=" card p-5">
-                <h1>Tambah Data Siswa</h1>
+            <form action="{{ route('siswa.editProsess' , $siswa['id']) }}" method="POST" class=" card p-5">
+                <h1>Edit Data Siswa</h1>
                 @csrf
+                @method('PATCH')
                 <div class="mb-3">
                     <label for="name" class="form-label">Nama</label>
-                    <input type="text" class="form-control" id="name" name="name">
+                    <input type="text" class="form-control" id="name" name="name" value="{{ $siswa->name }}">
                 </div>
                 <div class="mb-3">
                     <label for="rombel" class="form-label">Rombel</label>
-                    <input type="text" class="form-control" id="rombel" name="rombel">
+                    <input type="text" class="form-control" id="rombel" name="rombel" value="{{ $siswa->rombel }}">
                 </div>
                 <div class="mb-3">
                     <label for="rayon" class="form-label">Rayon</label>
-                    <input type="text" class="form-control" id="rayon" name="rayon">
+                    <input type="text" class="form-control" id="rayon" name="rayon" value="{{ $siswa->rayon }}">
                 </div>
                 <div class="mb-3">
                     <label for="nis" class="form-label">Nis</label>
-                    <input type="number" class="form-control" id="nis" name="nis">
+                    <input type="number" class="form-control" id="nis" name="nis" value="{{ $siswa->nis }}">
                 </div>
-                <button type="submit" class="btn btn-primary">Tambah Data</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
             </form>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

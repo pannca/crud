@@ -22,6 +22,7 @@ Route::prefix('siswa')->name('siswa.')->group(function () {
    Route::get('/create' , [SiswaController::class, 'create'])->name('create');
    Route::post('/store' , [SiswaController::class, 'store'])->name('store');
    Route::get('/index' , [SiswaController::class, 'index'])->name('index');
-   Route::post('/edit', [SiswaController::class, 'edit'])->name('edit');
+   Route::get('/{id}', [SiswaController::class, 'edit'])->name('edit');
+   Route::patch('/{id}' , [SiswaController::class, 'editProsess'])->name('editProsess');
    Route::delete('/hapus/{id}' , [SiswaController::class, 'hapus'])->name('hapus');
 });

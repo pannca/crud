@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('rayon');
             $table->string('rombel');
-            $table->integer('nis');
+            $table->integer('nis')->unique();
         });
     }
 

@@ -14,6 +14,11 @@ class SiswaController extends Controller
     }
 
     public function store(Request $request) {
+
+        if (Siswa::where('nis' , $request->nis)->exists()) {
+            return redirect()->back()->with('error' , 'nis sudah terdaftar');
+        }
+
         Siswa::create ([
             'name' => $request->name,
             'rayon' => $request->rayon,
@@ -34,6 +39,25 @@ class SiswaController extends Controller
         Siswa::where('id' , $id)->delete();
 
         return redirect()->back();
+    }
+
+    public function edit($id) {
+        $siswa = Siswa::find($id);
+
+        return view ('siswa.edit' , compact('siswa'));
+    }
+
+    public function editProsess(Request $request , $id) {
+
+        Siswa::where('id' , $id)->update([
+            'name' => $request->name,
+            'rayon' => $request->rayon,
+            'rombel' => $request->rombel,
+            'nis' => $request->nis
+        ]);
+
+        return redirect()->route('siswa.index')->with('success' , 'berhasil mengedit data siswa');
+
     }
 
 }
