@@ -34,7 +34,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="nis" class="form-label">Nis</label>
-                    <input type="number" class="form-control" id="nis" name="nis">
+                    <input type="number" class="form-control" id="nis" name="nis" min="0">
                 </div>
                 <button type="submit" class="btn btn-primary">Tambah Data</button>
             </form>
