@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Create Data</title>
+    <title>Edit Data</title>
 </head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -23,21 +23,22 @@
                 @method('PATCH')
                 <div class="mb-3">
                     <label for="name" class="form-label">Nama</label>
-                    <input type="text" class="form-control" id="name" name="name" value="{{ $siswa->name }}">
+                    <input type="text" class="form-control" id="name" name="name" value="{{ $siswa->name }}" required>
                 </div>
                 <div class="mb-3">
                     <label for="rombel" class="form-label">Rombel</label>
-                    <input type="text" class="form-control" id="rombel" name="rombel" value="{{ $siswa->rombel }}">
+                    <input type="text" class="form-control" id="rombel" name="rombel" value="{{ $siswa->rombel }}" required>
                 </div>
                 <div class="mb-3">
                     <label for="rayon" class="form-label">Rayon</label>
-                    <input type="text" class="form-control" id="rayon" name="rayon" value="{{ $siswa->rayon }}">
+                    <input type="text" class="form-control" id="rayon" name="rayon" value="{{ $siswa->rayon }}" required>
                 </div>
                 <div class="mb-3">
                     <label for="nis" class="form-label">Nis</label>
-                    <input type="number" class="form-control" id="nis" name="nis" value="{{ $siswa->nis }}">
+                    <input type="number" class="form-control" id="nis" name="nis" value="{{ $siswa->nis }}" min="0" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Simpan</button>
+                <a href="{{ route('siswa.index') }}" class="btn btn-secondary mt-3">Kembali</a>
             </form>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

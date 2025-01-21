@@ -12,6 +12,5 @@
     <a href="{{ route('siswa.index') }}">
         <button class="btn btn-primary">Letsgo</button>
     </a>
-
 </body>
 </html>

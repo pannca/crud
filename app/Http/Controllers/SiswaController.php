@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class SiswaController extends Controller
 {
+
     public function create()
     {
         return view('siswa.create');
@@ -16,14 +17,6 @@ class SiswaController extends Controller
 
     public function store(Request $request)
     {
-
-        $request->validate([
-            'name' => 'required',
-            'rayon' => 'required',
-            'rombel' => 'required',
-            'nis' => 'required',
-        ]);
-
         if (Siswa::where('nis', $request->nis)->exists()) {
             return redirect()->back()->with('error', 'nis sudah terdaftar');
         }
@@ -68,10 +61,6 @@ class SiswaController extends Controller
             'rombel' => 'required',
             'nis' => 'required',
         ]);
-
-        if (Siswa::where('nis', $request->nis)->exists()) {
-            return redirect()->back()->with('error', 'nis sudah terdaftar');
-        }
 
         Siswa::where('id', $id)->update([
             'name' => $request->name,
