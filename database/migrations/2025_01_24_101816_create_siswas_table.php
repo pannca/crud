@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('siswas', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-            $table->string('name');
-            $table->string('rayon');
+            $table->string('nama');
+            $table->foreignId('rayon_id')->constrained('rayons');
             $table->string('rombel');
-            $table->integer('nis');
+            $table->string('nis');
+            $table->timestamps();
         });
     }
 

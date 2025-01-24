@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('rayons', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-            $table->string('rayon');
+            $table->string('nama_rayon');
+            $table->timestamps();   
         });
     }
 
