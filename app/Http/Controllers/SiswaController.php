@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Siswa;
+use App\Models\Rayon;
 
 
 use Illuminate\Http\Request;
@@ -12,7 +13,8 @@ class SiswaController extends Controller
 
     public function create()
     {
-        return view('siswa.create');
+        $rayons = Rayon::all();
+        return view('siswa.create', compact('rayons'));
     }
 
     public function store(Request $request)
@@ -22,8 +24,8 @@ class SiswaController extends Controller
         }
 
         Siswa::create([
-            'name' => $request->name,
-            'rayon' => $request->rayon,
+            'nama' => $request->nama,
+            'rayon_id' => $request->rayon_id,
             'rombel' => $request->rombel,
             'nis' => $request->nis,
         ]);
@@ -34,7 +36,7 @@ class SiswaController extends Controller
     public function index()
     {
 
-        $siswa = Siswa::all();
+        $siswa = Siswa::with('rayon')->get();
         return view('siswa.index', compact('siswa'));
     }
 
@@ -56,14 +58,14 @@ class SiswaController extends Controller
     {
 
         $request->validate([
-            'name' => 'required',
+            'nama' => 'required',
             'rayon' => 'required',
             'rombel' => 'required',
             'nis' => 'required',
         ]);
 
         Siswa::where('id', $id)->update([
-            'name' => $request->name,
+            'nama' => $request->nama,
             'rayon' => $request->rayon,
             'rombel' => $request->rombel,
             'nis' => $request->nis
