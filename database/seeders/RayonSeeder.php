@@ -14,25 +14,25 @@ class RayonSeeder extends Seeder
     public function run(): void
     {
         Rayon::create([
-            'rayon' => 'Ciawi',
+            'nama_rayon' => 'Ciawi',
         ]);
         Rayon::create([
-            'rayon' => 'Cicurug',
+            'nama_rayon' => 'Cicurug',
         ]);
         Rayon::create([
-            'rayon' => 'Tajur',
+            'nama_rayon' => 'Tajur',
         ]);
         Rayon::create([
-            'rayon' => 'Cicurug',
+            'nama_rayon' => 'Cicurug',
         ]);
         Rayon::create([
-            'rayon' => 'Cisarua',
+            'nama_rayon' => 'Cisarua',
         ]);
         Rayon::create([
-            'rayon' => 'Cibedug',
+            'nama_rayon' => 'Cibedug',
         ]);
         Rayon::create([
-            'rayon' => 'Sukasari',
+            'nama_rayon' => 'Sukasari',
         ]);
 
     }
