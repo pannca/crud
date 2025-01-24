@@ -21,18 +21,20 @@
             <h1>Tambah Data Siswa</h1>
             @csrf
             <div class="mb-3">
-                <label for="name" class="form-label">Nama</label>
-                <input type="text" class="form-control" id="name" name="name" required>
+                <label for="nama" class="form-label">Nama</label>
+                <input type="text" class="form-control" id="nama" name="nama" required>
             </div>
             <div class="mb-3">
                 <label for="rombel" class="form-label">Rombel</label>
                 <input type="text" class="form-control" id="rombel" name="rombel" required>
             </div>
             <div class="mb-3">
-                <label for="rayon" class="form-label">Rayon</label>
-                <select name="rayon" id="rayon" class="form-select" required>
+                <label for="rayon_id" class="form-label">Rayon</label>
+                <select name="rayon_id" id="rayon_id" class="form-select" required>
                     <option value="" disabled selected hidden>Pilih Rayon</option>
-                    <option value="rayon_a">Rayon A</option>
+                    @foreach ( $rayons as $rayon )
+                    <option value="{{ $rayon->id }}">{{ $rayon->nama_rayon }}</option>
+                    @endforeach
                 </select>
             </div>
 

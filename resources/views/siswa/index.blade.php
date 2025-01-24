@@ -29,8 +29,8 @@
         <tbody >
             @forelse ($siswa as $item)
                 <tr>
-                    <td>{{ $item->name }}</td>
-                    <td>{{ $item->rayon }}</td>
+                    <td>{{ $item->nama }}</td>
+                    <td>{{ $item->rayon->nama_rayon }}</td>
                     <td>{{ $item->rombel }}</td>
                     <td>{{ $item->nis }}</td>
                     <td class="d-flex">
