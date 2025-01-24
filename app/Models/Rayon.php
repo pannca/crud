@@ -10,6 +10,12 @@ class Rayon extends Model
     use HasFactory;
 
     protected $fillable  = [
-        'rayon',
+        'nama_rayon',
+        'rayon_id',
     ];
+
+    public function siswas()
+    {
+        return $this->hasMany(Siswa::class);
+    }
 }

@@ -10,10 +10,14 @@ class Siswa extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name' ,
-        'rayon' ,
-        'rombel' ,
+        'nama',
+        'rayon_id',
+        'rombel',
         'nis',
     ];
 
+    public function rayon()
+    {
+        return $this->belongsTo(Rayon::class, 'rayon_id');
+    }
 }
