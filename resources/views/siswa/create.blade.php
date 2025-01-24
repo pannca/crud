@@ -30,8 +30,12 @@
             </div>
             <div class="mb-3">
                 <label for="rayon" class="form-label">Rayon</label>
-                <input type="text" class="form-control" id="rayon" name="rayon" required>
+                <select name="rayon" id="rayon" class="form-select" required>
+                    <option value="" disabled selected hidden>Pilih Rayon</option>
+                    <option value="rayon_a">Rayon A</option>
+                </select>
             </div>
+
             <div class="mb-3">
                 <label for="nis" class="form-label">Nis</label>
                 <input type="number" class="form-control" id="nis" name="nis" min="0" required>
