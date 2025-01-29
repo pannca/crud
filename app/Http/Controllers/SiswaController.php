@@ -44,7 +44,7 @@ class SiswaController extends Controller
     {
         Siswa::where('id', $id)->delete();
 
-        return redirect()->back();
+        return redirect()->back()->with('success' , 'berhasil menghapus data siswa!');
     }
 
     public function edit($id)
