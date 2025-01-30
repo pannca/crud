@@ -22,8 +22,8 @@
                 @csrf
                 @method('PATCH')
                 <div class="mb-3">
-                    <label for="name" class="form-label">Nama</label>
-                    <input type="text" class="form-control" id="name" name="name" value="{{ $siswa->name }}" required>
+                    <label for="nama" class="form-label">Nama</label>
+                    <input type="text" class="form-control" id="nama" name="nama" value="{{ $siswa->nama }}" required>
                 </div>
                 <div class="mb-3">
                     <label for="rombel" class="form-label">Rombel</label>
@@ -31,7 +31,12 @@
                 </div>
                 <div class="mb-3">
                     <label for="rayon" class="form-label">Rayon</label>
-                    <input type="text" class="form-control" id="rayon" name="rayon" value="{{ $siswa->rayon }}" required>
+                    <select name="rayon_id" id="rayon_id" class="form-select" required>
+                        <option value="" disabled selected hidden>Pilih Rayon</option>
+                        @foreach ( $rayons as $rayon )
+                        <option value="{{ $rayon->id }}" {{ $rayon->id == old('rayon_id', $siswa->rayon->id)? 'selected' : '' }}>{{ $rayon->nama_rayon }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="mb-3">
                     <label for="nis" class="form-label">Nis</label>
