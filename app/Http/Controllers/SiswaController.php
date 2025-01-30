@@ -50,23 +50,17 @@ class SiswaController extends Controller
     public function edit($id)
     {
         $siswa = Siswa::find($id);
-
-        return view('siswa.edit', compact('siswa'));
+        $rayons = Rayon::all();
+        return view('siswa.edit', compact('siswa' , 'rayons'));
     }
 
     public function editProsess(Request $request, $id)
     {
 
-        $request->validate([
-            'nama' => 'required',
-            'rayon' => 'required',
-            'rombel' => 'required',
-            'nis' => 'required',
-        ]);
-
+        // dd($request->all());
         Siswa::where('id', $id)->update([
             'nama' => $request->nama,
-            'rayon' => $request->rayon,
+            'rayon_id' => $request->rayon_id,
             'rombel' => $request->rombel,
             'nis' => $request->nis
         ]);
