@@ -9,6 +9,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="bg-light">
@@ -21,7 +22,10 @@
 
         <div class="d-flex justify-content-between mb-3">
             <h4>Daftar Siswa</h4>
-            <a href="{{ route('siswa.create') }}" class="btn btn-success">Tambah Data</a>
+            <div class="d-flex gap-2">
+                <a href="{{ route('siswa.create') }}" class="btn btn-success"><i class="fa-solid fa-plus"></i> Tambah Data</a>
+                <a href="{{ route('rayon.index') }}" class="btn btn-success"><i class="fa-solid fa-list-check"></i> Kelola Data Rayon</a>
+            </div>
         </div>
 
         <div class="table-responsive">
