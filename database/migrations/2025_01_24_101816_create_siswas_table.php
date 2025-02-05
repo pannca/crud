@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('siswas', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->foreignId('rayon_id')->constrained('rayons');
+            $table->foreignId('rayon_id')->constrained('rayons')->onDelete('cascade');
             $table->string('rombel');
             $table->string('nis');
             $table->timestamps();
