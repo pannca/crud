@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\RayonController;
+use App\Models\Rayon;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +27,14 @@ Route::prefix('siswa')->name('siswa.')->group(function () {
    Route::get('/{id}', [SiswaController::class, 'edit'])->name('edit');
    Route::patch('/{id}' , [SiswaController::class, 'editProsess'])->name('editProsess');
    Route::delete('/hapus/{id}' , [SiswaController::class, 'hapus'])->name('hapus');
+});
+
+Route::prefix('rayon')->name('rayon.')->group(function () {
+    Route::get('/index' , [RayonController::class, 'index'])->name('index');
+    Route::get('/create' , [RayonController::class, 'create'])->name('create');
+    Route::post('/store' , [RayonController::class, 'store'])->name('store');
+    Route::get('/{id}', [RayonController::class, 'edit'])->name('edit');
+    Route::patch('/{id}' , [RayonController::class, 'editProsess'])->name('editProsess');
+    Route::delete('/hapus/{id}' , [RayonController::class, 'hapus'])->name('hapus');
+
 });
