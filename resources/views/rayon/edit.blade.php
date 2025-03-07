@@ -12,7 +12,7 @@
 <body class="bg-light">
     <div class="container mt-5">
         <div class="card shadow p-4">
-            <h2 class="text-center text-primary">Edit Data Rayon</h2>
+            <h2 class="text-center text-primary">Edit Data Rayon,</h2>
             <hr>
 
             @if (Session::get('error'))

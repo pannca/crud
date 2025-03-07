@@ -4,12 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Siswa;
 use App\Models\Rayon;
+use App\Repository\SiswaRepository;
+use App\Repository\SiswaImpelements;
 
 
 use Illuminate\Http\Request;
 
 class SiswaController extends Controller
 {
+    protected $siswaImplements;
+
+    public function __construct(SiswaRepository $siswaImplements)
+    {
+        $this->siswaImplements = $siswaImplements;
+    }
 
     public function create()
     {
@@ -22,13 +30,14 @@ class SiswaController extends Controller
         if (Siswa::where('nis', $request->nis)->exists()) {
             return redirect()->back()->with('error', 'nis sudah terdaftar');
         }
+        $this->siswaImplements->store($request->all());
 
-        Siswa::create([
-            'nama' => $request->nama,
-            'rayon_id' => $request->rayon_id,
-            'rombel' => $request->rombel,
-            'nis' => $request->nis,
-        ]);
+        // Siswa::create([
+        //     'nama' => $request->nama,
+        //     'rayon_id' => $request->rayon_id,
+        //     'rombel' => $request->rombel,
+        //     'nis' => $request->nis,
+        // ]);
 
         return redirect()->route('siswa.index')->with('success', 'berhasil menambahkan data');
     }

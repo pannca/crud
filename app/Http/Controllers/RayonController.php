@@ -4,9 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Rayon;
+use App\Repository\RayonRepository;
 
 class RayonController extends Controller
 {
+    protected $rayonImplemenets;
+
+    public function __construct(RayonRepository $rayonImplemenets)
+    {
+        $this->rayonImplemenets = $rayonImplemenets;
+    }
     public function index()
     {
         $rayons = Rayon::all();
@@ -18,9 +25,12 @@ class RayonController extends Controller
     }
 
     public function store (Request $request) {
-        Rayon::create([
-            'nama_rayon' => $request->nama_rayon
-        ]);
+
+        $this->rayonImplemenets->store($request->all());
+
+        // Rayon::create([
+        //     'nama_rayon' => $request->nama_rayon
+        // ]);
         return redirect()->route('rayon.index')->with('success', 'berhasil menambahkan data rayon');
     }
 
