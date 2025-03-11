@@ -47,11 +47,11 @@
                             <td>{{ $item->rombel }}</td>
                             <td>{{ $item->nis }}</td>
                             <td class="d-flex">
-                                <a href="{{ route('siswa.edit', $item['id']) }}" class="btn btn-primary btn-sm me-2">Edit</a>
+                                <a href="{{ route('siswa.edit', $item['id']) }}" class="btn btn-primary btn-sm me-2"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
                                 <form action="{{ route('siswa.hapus', $item['id']) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="button" class="btn btn-danger btn-sm hapus" data-id="{{ $item['id'] }}">Hapus</button>
+                                    <button type="button" class="btn btn-danger btn-sm hapus" data-id="{{ $item['id'] }}"><i class="fa-solid fa-trash"></i> Hapus</button>
                                 </form>
                             </td>
                         </tr>

@@ -41,11 +41,11 @@
                         <tr>
                             <td>{{ $item->nama_rayon ?? '-' }}</td>
                             <td class="d-flex">
-                                <a href="{{ route('rayon.edit', $item['id']) }}" class="btn btn-primary btn-sm me-2">Edit</a>
+                                <a href="{{ route('rayon.edit', $item['id']) }}" class="btn btn-primary btn-sm me-2"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
                                 <form action="{{ route('rayon.hapus', $item['id']) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="button" class="btn btn-danger btn-sm hapus" data-id="{{ $item['id'] }}">Hapus</button>
+                                    <button type="button" class="btn btn-danger btn-sm hapus" data-id="{{ $item['id'] }}"><i class="fa-solid fa-trash"></i> Hapus</button>
                                 </form>
                             </td>
                         </tr>
